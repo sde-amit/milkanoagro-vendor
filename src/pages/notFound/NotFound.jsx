@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from "../../assets/logo.png";
 import { FaHome, FaExclamationTriangle } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import './notFound.scss';
@@ -16,7 +17,7 @@ const NotFound = () => {
             <div className={`not_found_content ${isVisible ? 'visible' : ''}`}>
                 {/* Company Logo */}
                 <div className="company_branding">
-                    <img src="/src/assets/logo.png" alt="Milkano Agro India" className="company_logo" />
+                    <img src={logo} alt="Milkano Agro India" className="company_logo" />
                     <span className="company_name">Milkano Agro India</span>
                 </div>
 

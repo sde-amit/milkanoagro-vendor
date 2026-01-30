@@ -8,6 +8,7 @@ import Banner from '../banner/Banner';
 import { CustomSelect, OtpModal, SuccessModal } from '../common';
 import { useAuthStore, useVendorStore, useUIStore } from '../../stores';
 import { uploadAPI } from '../../services/api';
+import logo from "../../assets/logo.png";
 
 const VendorOnboardingForm = () => {
     const navigate = useNavigate();
@@ -521,7 +522,7 @@ const VendorOnboardingForm = () => {
                 <div className="form_wrapper">
                     <div className="form_header">
                         <div className="logo_section">
-                            <img src="/src/assets/logo.png" alt="Milkano Agro India" className="company_logo" />
+                            <img src={logo} alt="Milkano Agro India" className="company_logo" />
                             <div className="company_info">
                                 <h2>Milkano Agro India</h2>
                                 <p>ONBOARDING FORM</p>
