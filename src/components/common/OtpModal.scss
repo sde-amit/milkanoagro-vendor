@@ -1,0 +1,170 @@
+.otp_modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.otp_modal_container {
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.otp_modal_header {
+    background: linear-gradient(135deg, #5124b9, #9333ea);
+    color: white;
+    padding: 24px;
+
+    .otp_modal_title {
+        color: white !important;
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+}
+
+.otp_modal_body {
+    padding: 40px 32px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+
+    .otp_message {
+        color: #6b7280;
+        font-size: 16px;
+        margin-bottom: 40px;
+        line-height: 1.6;
+        display: block;
+        text-align: left;
+    }
+
+    .otp_inputs_container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        gap: 12px;
+
+        .otp_input {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
+            border: 2px solid #d1d5db;
+            background: white;
+            flex: 1;
+            max-width: 60px;
+
+            &:focus-within {
+                border-color: #6b46c1;
+                box-shadow: 0 0 0 2px rgba(107, 70, 193, 0.2);
+            }
+
+            &:hover {
+                border-color: #9ca3af;
+            }
+
+            .ant-input {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                text-align: center;
+                font-size: 24px;
+                font-weight: 600;
+                background: transparent;
+                height: 56px;
+                line-height: 56px;
+                color: #9ca3af;
+
+                &:focus {
+                    border: none;
+                    box-shadow: none;
+                    color: #1f2937;
+                }
+
+                &::placeholder {
+                    color: #d1d5db;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    .otp_submit_btn {
+        background: linear-gradient(135deg, #6b46c1, #9333ea);
+        border: none;
+        border-radius: 12px;
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        width: 140px;
+        margin-left: auto;
+        display: block;
+        color: white;
+
+        &:hover:not(:disabled) {
+            background: linear-gradient(135deg, #553c9a, #7c2d12) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(107, 70, 193, 0.3);
+            color: #fff;
+        }
+
+        &:disabled {
+            background: #d1d5db !important;
+            color: #9ca3af !important;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        &:focus {
+            background: linear-gradient(135deg, #6b46c1, #9333ea) !important;
+            color: #fff;
+        }
+    }
+}
+
+// Responsive design
+@media (max-width: 480px) {
+    .otp_modal_container {
+        width: 95%;
+        margin: 20px;
+    }
+
+    .otp_modal_body {
+        padding: 32px 24px;
+
+        .otp_inputs_container {
+            gap: 8px;
+
+            .otp_input {
+                width: 45px;
+                height: 45px;
+                max-width: 45px;
+
+                .ant-input {
+                    font-size: 18px;
+                    height: 41px;
+                    line-height: 41px;
+                }
+            }
+        }
+
+        .otp_submit_btn {
+            width: 120px;
+            height: 44px;
+            font-size: 14px;
+        }
+    }
+}

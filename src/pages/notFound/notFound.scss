@@ -1,0 +1,489 @@
+// 404 NOT FOUND PAGE STYLES - Simplified Version
+.not_found_container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6B46C1 0%, #9333EA 50%, #6B46C1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+
+    // Background pattern
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+    }
+}
+
+.not_found_content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+        padding: 50px 30px;
+        margin: 20px;
+        border-radius: 20px;
+    }
+
+    @media (max-width: 576px) {
+        padding: 40px 25px;
+        margin: 15px;
+        border-radius: 16px;
+    }
+}
+
+// Company Branding
+.company_branding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+
+    .company_logo {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+
+        @media (max-width: 576px) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .company_name {
+        font-size: 20px;
+        font-weight: 700;
+        color: #6B46C1;
+        font-family: 'Poppins', sans-serif;
+
+        @media (max-width: 576px) {
+            font-size: 18px;
+        }
+    }
+}
+
+// 404 Animation
+.error_animation {
+    position: relative;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+
+    .error_number {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+
+        span {
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #6B46C1, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(107, 70, 193, 0.3);
+            animation: bounce 2s infinite;
+
+            @media (max-width: 768px) {
+                font-size: 100px;
+            }
+
+            @media (max-width: 576px) {
+                font-size: 80px;
+            }
+
+            &.four:first-child {
+                animation-delay: 0s;
+            }
+
+            &.zero {
+                position: relative;
+                animation-delay: 0.2s;
+                transform: scale(1.1);
+
+                .zero_inner {
+                    position: relative;
+                    display: inline-block;
+
+                    .zero_icon {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 35px;
+                        color: #FFD700;
+                        animation: pulse 2s infinite;
+
+                        @media (max-width: 768px) {
+                            font-size: 30px;
+                        }
+
+                        @media (max-width: 576px) {
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+
+            &.four:last-child {
+                animation-delay: 0.4s;
+            }
+        }
+    }
+
+    .error_subtitle {
+        font-size: 20px;
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        @media (max-width: 576px) {
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+// Error Message
+.error_message {
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+
+    .error_title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 20px;
+        font-family: 'Poppins', sans-serif;
+
+        @media (max-width: 768px) {
+            font-size: 30px;
+        }
+
+        @media (max-width: 576px) {
+            font-size: 26px;
+        }
+    }
+
+    .error_description {
+        font-size: 18px;
+        color: #666;
+        line-height: 1.6;
+        max-width: 500px;
+        margin: 0 auto;
+        font-family: 'Poppins', sans-serif;
+
+        @media (max-width: 576px) {
+            font-size: 16px;
+        }
+    }
+}
+
+// Single Action Button
+.error_actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+
+    .btn {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 36px;
+        border: none;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 200px;
+        justify-content: center;
+
+        @media (max-width: 576px) {
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 16px;
+            min-width: auto;
+        }
+
+        .btn_icon {
+            font-size: 20px;
+
+            @media (max-width: 576px) {
+                font-size: 18px;
+            }
+        }
+
+        &.primary_btn {
+            background: linear-gradient(135deg, #6B46C1, #9333EA);
+            color: white;
+            box-shadow: 0 6px 25px rgba(107, 70, 193, 0.3);
+
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 35px rgba(107, 70, 193, 0.4);
+            }
+
+            &:active {
+                transform: translateY(-1px);
+            }
+        }
+    }
+}
+
+// Decorative Elements
+.decorative_elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    .floating_shape {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        animation: float 8s ease-in-out infinite;
+
+        &.shape_1 {
+            width: 60px;
+            height: 60px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        &.shape_2 {
+            width: 40px;
+            height: 40px;
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        &.shape_3 {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        &.shape_4 {
+            width: 50px;
+            height: 50px;
+            bottom: 30%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        &.shape_5 {
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+
+        &.shape_6 {
+            width: 70px;
+            height: 70px;
+            top: 60%;
+            right: 5%;
+            animation-delay: 5s;
+        }
+    }
+}
+
+// Background Pattern
+.background_pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    .pattern_dot {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        animation: twinkle 3s ease-in-out infinite;
+
+        &:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        &:nth-child(2) {
+            top: 40%;
+            right: 30%;
+            animation-delay: 0.5s;
+        }
+
+        &:nth-child(3) {
+            bottom: 30%;
+            left: 30%;
+            animation-delay: 1s;
+        }
+
+        &:nth-child(4) {
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 1.5s;
+        }
+
+        &:nth-child(5) {
+            top: 60%;
+            left: 50%;
+            animation-delay: 2s;
+        }
+    }
+}
+
+// Animations
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-15px) rotate(120deg);
+    }
+
+    66% {
+        transform: translateY(8px) rotate(240deg);
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+    .not_found_container {
+        padding: 15px;
+    }
+
+    .not_found_content {
+        padding: 35px 20px;
+    }
+
+    .error_animation .error_number span {
+        font-size: 70px;
+    }
+
+    .error_message .error_title {
+        font-size: 22px;
+    }
+
+    .error_message .error_description {
+        font-size: 14px;
+    }
+}

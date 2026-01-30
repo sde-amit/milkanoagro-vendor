@@ -1,0 +1,78 @@
+/* Z-Index Management for Proper Layering */
+
+/* 
+Z-Index Hierarchy:
+- Base content: 1
+- Header/Navigation: 1000-1999
+- Dropdowns/Tooltips: 2000-2999
+- Modals/Overlays: 9000-9999
+- Toast Notifications: 99999 (highest)
+*/
+
+/* Toast Notifications - Highest Priority */
+.Toaster {
+    z-index: 99999 !important;
+    position: fixed !important;
+}
+
+.Toaster>div {
+    z-index: 99999 !important;
+}
+
+/* React Hot Toast specific overrides */
+div[data-hot-toast] {
+    z-index: 99999 !important;
+    position: relative !important;
+}
+
+div[data-hot-toast]>div {
+    z-index: 99999 !important;
+}
+
+/* Ensure toast container is above everything */
+.__react-hot-toast {
+    z-index: 99999 !important;
+}
+
+/* Toast wrapper - ensure it's above modals */
+[data-hot-toast-container] {
+    z-index: 99999 !important;
+    position: fixed !important;
+}
+
+/* Individual toast items */
+[data-hot-toast] {
+    z-index: 99999 !important;
+    position: relative !important;
+}
+
+/* Modal overlays - Lower than toasts */
+.success_modal_overlay,
+.otp_modal_overlay,
+.modal_overlay {
+    z-index: 9000 !important;
+}
+
+/* Socket status indicator */
+.socket-status {
+    z-index: 1000 !important;
+}
+
+/* Header and navigation */
+.header,
+.navbar {
+    z-index: 1001 !important;
+}
+
+/* Dropdown menus */
+.dropdown-menu,
+.select-dropdown {
+    z-index: 2000 !important;
+}
+
+/* Ensure backdrop filters don't interfere with toasts */
+.success_modal_overlay,
+.otp_modal_overlay {
+    backdrop-filter: blur(5px);
+    /* Toasts will still appear above due to higher z-index */
+}

@@ -1,0 +1,237 @@
+.footer_main_container_fluid {
+    background: linear-gradient(90deg, #FFD700 0%, #FFD700 42%, #6B46C1 42%, #6B46C1 100%);
+    padding: 0;
+    min-height: 300px;
+
+    .footer_left_section {
+        background-color: #fcc300;
+        padding: 40px 70px;
+        color: #000;
+
+        .footer_company_info {
+            .footer_logo {
+                margin-bottom: 15px;
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                    // border-radius: 50%;
+                    // border: 3px solid #000;
+                }
+            }
+
+            .company_name {
+                font-size: 35px;
+                font-weight: bold;
+                color: #000;
+                margin-bottom: 20px;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            .company_address {
+                margin-bottom: 30px;
+
+                p {
+                    color: #000;
+                    font-size: 16px;
+                    font-family: 'Poppins', sans-serif;
+                    margin-bottom: 5px;
+                    line-height: 1.4;
+                }
+            }
+
+            .app_download_section {
+                display: flex;
+
+                .big_bonus {
+                    font-size: 35px !important;
+                    font-weight: bold;
+                    color: #000;
+                    margin-bottom: 15px;
+                    font-family: 'Poppins', sans-serif;
+
+                }
+
+                .span {
+                    color: #000;
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                    font-family: 'Poppins', sans-serif;
+                }
+
+                .app_store_buttons {
+                    display: flex;
+                    gap: 10px;
+                    // flex-wrap: wrap;
+                    margin-left: 20px;
+
+                    .app_store_btn {
+                        background-color: #FCC300;
+
+                        img {
+                            height: 70px;
+                            width: 50%;
+                            object-fit: contain;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer_right_section {
+        background-color: #432274;
+        padding: 40px 30px;
+        color: #fff;
+
+        .footer_links_container {
+            .footer_links_column {
+                h4 {
+                    color: #fff;
+                    font-size: 18px;
+                    font-family: 'Poppins', sans-serif;
+                    margin-bottom: 20px;
+                    font-weight: 600;
+                }
+
+                .link_wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    a {
+                        color: #fff;
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 14px;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+                        line-height: 1.4;
+
+                        &:hover {
+                            color: #FFD700;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .social_connect_section {
+                text-align: right;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+                h4 {
+                    color: #fff;
+                    font-size: 18px;
+                    font-family: 'Poppins', sans-serif;
+                    margin-bottom: 15px;
+                    font-weight: 600;
+                }
+
+                .social_media_icons {
+                    display: flex;
+                    gap: 15px;
+                    justify-content: flex-end;
+
+                    a {
+                        width: 40px;
+                        height: 40px;
+                        background-color: rgba(255, 255, 255, 0.1);
+                        border-radius: 10%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.3s ease;
+
+                        i {
+                            color: #fff;
+                            font-size: 18px;
+                        }
+
+                        &:hover {
+                            background-color: #FFD700;
+
+                            i {
+                                color: #6B46C1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.copy_right_container {
+    background-color: #432274;
+    border-top: 2px solid #fff;
+    padding: 15px 0;
+
+    .copy_right_text {
+
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+    }
+}
+
+// Responsive Design
+@media (max-width: 991px) {
+    .footer_main_container_fluid {
+        background: #fcc300;
+
+        .footer_left_section {
+            background-color: #fcc300;
+        }
+
+        .footer_right_section {
+            background-color: #432274;
+        }
+    }
+
+    .copy_right_container {
+        background-color: #432274;
+        border-top: 1px solid #ffffff54;
+        padding: 15px 0;
+
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .footer_main_container_fluid {
+
+        .footer_left_section,
+        .footer_right_section {
+            padding: 30px 20px;
+        }
+
+        .footer_left_section {
+            .footer_company_info {
+                .company_name {
+                    font-size: 20px;
+                }
+
+                .app_download_section {
+                    .big_bonus {
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+    }
+
+    .copy_right_container {
+        background-color: #432274;
+        border-top: 1px solid #ffffff54;
+        padding: 15px 0;
+
+
+    }
+}
