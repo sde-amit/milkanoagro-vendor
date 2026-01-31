@@ -56,8 +56,8 @@ const OtpModal = ({ isOpen, onClose, onSubmit, contactNumber, title = "SUBMIT OT
     if (!isOpen) return null;
 
     return (
-        <div className="otp_modal_overlay" onClick={onClose}>
-            <div className="otp_modal_container" onClick={(e) => e.stopPropagation()}>
+        <div className="otp_modal_overlay">
+            <div className="otp_modal_container">
                 <div className="otp_modal_header">
                     <Title level={3} className="otp_modal_title">
                         {title}

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { IoChevronDown } from 'react-icons/io5';
 import { FaCloudUploadAlt, FaDownload, FaUpload, FaPlus, FaMinus, FaEye, FaFileAlt, FaImage, FaFilePdf } from "react-icons/fa";
 import './vendorOnboardingForm.scss';
 import Banner from '../banner/Banner';
@@ -60,7 +59,7 @@ const VendorOnboardingForm = () => {
 
                     // Try to fetch existing profile data
                     try {
-                        const profileData = await fetchProfile();
+                        await fetchProfile();
                     } catch (error) {
                         // Profile might not exist yet, that's okay
                     }
@@ -93,14 +92,6 @@ const VendorOnboardingForm = () => {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [activeTab]);
-
-    // Debug: Log uploaded files whenever they change
-    useEffect(() => {
-        if (formData.uploadedFiles) {
-            Object.keys(formData.uploadedFiles).forEach(key => {
-            });
-        }
-    }, [formData.uploadedFiles]);
 
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -295,7 +286,7 @@ const VendorOnboardingForm = () => {
         }
     };
 
-    const getFileIcon = (fileType, mimeType) => {
+    const getFileIcon = (mimeType) => {
         if (mimeType?.includes('pdf')) {
             return <FaFilePdf className="file_type_icon pdf" />;
         } else if (mimeType?.includes('image')) {
@@ -312,7 +303,7 @@ const VendorOnboardingForm = () => {
         return (
             <div className="uploaded_file_info">
                 <div className="file_details">
-                    {getFileIcon('document', fileData.type)}
+                    {getFileIcon(fileData.type)}
                     <span className="file_name_text">{fileData.name}</span>
                 </div>
                 <div className="file_actions">
@@ -401,7 +392,7 @@ const VendorOnboardingForm = () => {
             try {
                 toast.loading('Saving form data...');
 
-                const result = await submitOnboarding(true); // Pass true for isDraft
+                await submitOnboarding(true); // Pass true for isDraft
                 toast.dismiss();
                 toast.success('Form data saved successfully!');
             } catch (error) {
@@ -442,7 +433,7 @@ const VendorOnboardingForm = () => {
                 // First, save the onboarding form data
                 toast.loading('Saving form data...');
 
-                const result = await submitOnboarding(true); // Pass true for isDraft
+                await submitOnboarding(true); // Pass true for isDraft
                 toast.dismiss();
                 toast.success('Form data saved successfully!');
 
